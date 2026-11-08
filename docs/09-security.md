@@ -1,0 +1,4 @@
+# 09 - Security review
+No backend, account system, secrets, remote fonts, network calls or remote scripts in the app. Device-local storage only, with in-memory fallback when blocked. User text is escaped for HTML templates or set with textContent/value. Stored IDs are validated as nonnegative safe integers, priorities are allowlisted, and malformed storage recovers to defaults.
+
+Partial manual source review informed by ECC and Cloudflare's audit guidance. Static checks found no eval, Function construction, fetch/XHR, cookies, remote imports or inline event handlers. Template innerHTML is used with escaped text and validated attribute values. No cross-user vulnerability demonstrated. This is not a full penetration test or an independently verified Cloudflare audit. Pentagi and Strix were not run; MiroFish is not an app-testing tool.
